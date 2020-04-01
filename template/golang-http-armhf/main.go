@@ -98,7 +98,7 @@ func makeRequestHandler() func(http.ResponseWriter, *http.Request) {
 			QueryString: r.URL.RawQuery,
 		}
 
-		result, resultErr := function.Handle(req)
+		result, resultErr := function.Handle(r.Context(), req)
 
 		if result.Header != nil {
 			for k, v := range result.Header {

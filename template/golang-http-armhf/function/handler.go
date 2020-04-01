@@ -1,6 +1,7 @@
 package function
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 
@@ -8,7 +9,7 @@ import (
 )
 
 // Handle a function invocation
-func Handle(req handler.Request) (handler.Response, error) {
+func Handle(ctx context.Context, req handler.Request) (handler.Response, error) {
 	var err error
 
 	message := fmt.Sprintf("Hello world, input was: %s", string(req.Body))
